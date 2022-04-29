@@ -1,0 +1,90 @@
+\documentclass[12pt, letterpaper]{report}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=2cm]{geometry}
+
+%% Useful packages
+    %% math and units
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{upgreek}
+\usepackage{hepunits}
+\DeclareSIUnit\barn{b}
+\usepackage{xspace}
+    %% tables and figures
+\usepackage{graphicx}    
+\usepackage{rotating}
+\usepackage{adjustbox}
+\usepackage{multirow}
+\usepackage{subcaption}
+    %% formatting
+\usepackage[indent=0pt]{parskip}
+\usepackage{titlesec}
+    %% cross-references
+\usepackage{url}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[nameinlink, capitalise]{cleveref}
+\usepackage[numbers, sort&compress]{natbib}
+
+%commands
+\newcommand{\pt}{\ensuremath{p_\mathrm{T}}\xspace}
+\newcommand{\mt}{\ensuremath{m_\mathrm{T}}\xspace}
+\newcommand{\ptmiss}{\ensuremath{\pt^\text{miss}}\xspace}
+\newcommand{\ptvecmiss}{\ensuremath{\vec{p}_\mathrm{T}^{\kern2pt\text{miss}}}\xspace}
+\DeclareRobustCommand{\GeV}[1]{\ensuremath{\SI{#1}{\GeV}}}
+\newcommand{\TeV}[1]{\SI{#1}{\TeV}}
+\newcommand{\fbinv}[1]{\SI{#1}{\invfb}}
+\newcommand{\Zp}{\ensuremath{{\mathrm{Z}'}}\xspace}
+
+\newcommand{\crefrangeconjunction}{--}
+
+\numberwithin{equation}{chapter}
+
+\title{\textbf{Search for Dark Matter Produced in Association with a Higgs Boson Decaying to a Bottom Quark and Antiquark Pair Plus Missing Transverse Energy at the HL-LHC}}
+\author{\textbf{Jackson Wallace}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\titleformat{\chapter}{}{}{0em}{\bf\LARGE\thechapter.~}
+
+\begin{abstract}
+The inability to explain the phenomenon of dark matter remains one of the largest flaws with the Standard Model of particle physics.
+This thesis gives an overview of current efforts to understand dark matter, with a focus on indirect searches for dark matter produced in association with a Higgs boson. 
+With the higher rate of collisions at the High-Luminosity Large Hadron Collider (HL-LHC) as well as the  Phase-2 upgrade of the Compact Muon Solenoid (CMS) detector, these searches present an excellent avenue to explore the mystery of dark matter. 
+This thesis then presents a projection study for the sensitivity of the upgraded CMS detector to new physics, especially dark matter, in the mono-Higgs sector, examining a h $\to$ b$\bar{\mathrm{b}}$ plus missing transverse momentum final state at the HL-LHC.
+The focus lies on signals with high-momentum Higgs bosons, resulting in a large radius jet that can be identified as originating from a Higgs boson.
+The search is sensitive to a variety of physics beyond the Standard Model including a two Higgs doublet model with a pseudoscalar mediator (2HDM+a). This model proposes two additional massive pseudoscalars, labelled A and a. This thesis reveals that the HL-LHC, with an expanded $\fbinv{3000}$ dataset, will have additional sensitivity to BSM physics. If observed, 2HDM+a signals with $m_\mathrm{a} = \GeV{250}$ and $m_\mathrm{A}$ from $1000$ to $\GeV{1600}$ could have a significance near 5$\sigma$ or greater.
+If no significant excess is observed, the exclusion of parameters of the 2HDM+a model can be extended. Signals with $m_\mathrm{A}$ values from $750$ to $\GeV{2000}$ could be excluded for $m_\mathrm{a}$ equal to $\GeV{250}$, while signals with $m_\mathrm{A}$ from $1250$ to $\GeV{1600}$ could be excluded for $m_\mathrm{a} = \GeV{500}$. 
+\end{abstract}
+
+\input{Chapters/Intro/intro}
+\input{Chapters/Theory/theory}
+\input{Chapters/CMS/cms}
+\input{Chapters/Experiment/experiment}
+\input{Chapters/Datasets/datasets}
+\input{Chapters/Strategy/strategy}
+\input{Chapters/Signal_Extraction/signal_extraction}
+\input{Chapters/Systematics/systematics}
+\input{Chapters/Results/results}
+
+\appendix
+\input{Chapters/app_samples}
+
+\titleformat{\chapter}{}{}{0em}{\bf\LARGE}
+
+\clearpage
+\input{Chapters/acknowledgements}
+
+\bibliographystyle{cms_unsrt}
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{hbbmet}
+
+\end{document}

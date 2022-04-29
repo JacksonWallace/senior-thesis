@@ -1,0 +1,21 @@
+\chapter{Datasets}
+\label{chap:datasets}
+Most analyses at the LHC make use of simulations of events. Simulations are excellent tools for predicting backgrounds in analyses as well as modeling the observables of the targeted signal. Simulating events at the LHC or HL-LHC involves solving extremely complicated problems in QCD and thus requires a variety of software tools to be accomplished.
+
+One method that makes this task easier is factorization, which lets the calculation be separated into different momentum regimes~\cite{Buckley_2011}. At high momentum are the hard processes, where partons of the incoming protons interact to form outgoing particles. The calculations for these processes can be done perturbatively. The next regime is the evolution from the hard processes to the low-momentum soft processes where hadrons form. This is typically simulated using a parton shower algorithm. The partons of this process form hadrons, but hadronization cannot be calculated perturbatively and is instead simulated using models. In each regime, Monte Carlo methods are used for calculation.
+
+For a hard process, the cross section of a scattering process $ab\to n$ can be calculated by
+
+\begin{equation}
+    \sigma = \sum_{a,b}\int_0^1 \mathrm{d}x_a\mathrm{d}x_b\int f^{h_1}_a(x_a, \mu_F)f^{h_2}_b(x_b, \mu_F)\mathrm{d}\hat{\sigma}_{ab\to n}(\mu_F, \mu_R)
+\end{equation}
+
+where $f^h_a(x,\mu)$ are the parton distribution functions (PDFs) and $\hat{\sigma}_{ab\to n}(\mu_F, \mu_R)$ is the parton-level cross-sections of $a$, $b$ scattering into $n$. The PDFs depend on the momentum fraction $x$ of the parton $a$ of its parent hadron $h$ and on the factorization scale $\mu_F$. The parton-level cross-section depends on $\mu_F$ as well as the renormalization scale $\mu_R$ and the momenta of final state phase-space $\Phi_n$. The cross-section is calculated using the matrix element squared of the process. There is no one correct choice of $\mu_R$ and $\mu_F$, but one common choice is a scale $Q^2$ such that $\mu_F=\mu_R=Q^2$. Often $Q$ is chosen to be the mass of a particle or the \pt of a pair of massless particles.
+
+To generate the 2HDM+a samples used in this thesis, \textsc{MadGraph5} v2.6.5~\cite{Alwall:2014hca} is used to simulate the hard scattering process by calculating the matrix elements at leading order (LO) in the perturbative QCD calculation. \textsc{MadGraph5} is also used to obtain the cross section of these processes. In creating these samples, some of the model parameters are fixed with $\sin\theta = 0.35$, $\tan\beta = 1$, and $m_\chi = \GeV{10}$. \textsc{MadGraph5} is also used to produce the W+jets, Z+jets, and multijet samples. In order to produce samples for Wh, Zh, and t$\bar{\mathrm{t}}$ events, the \textsc{Powheg}~\cite{Frixione_2007} tool is used to accurately simulate these events at next-to-leading order (NLO) in the perturbative QCD calculation.
+
+\textsc{Pythia} v8 is then used in order to simulate both parton showering and hadronization~\cite{Sjostrand:2014zea}.
+Finally, in order to simulate the Phase-2 detector, the \textsc{Delphes} v3.5.0 framework is used~\cite{deFavereau:2014dph,Selvaggi:2014mya,Selvaggi:2016ydq}.
+\textsc{Delphes} allows for fast simulation of detector effects by reducing the complexity of aspects of the simulation. This is done by making some simplifying assumptions and by parametrizing the detector response.
+
+A table of the name of the samples used in this thesis along with their cross-sections has been provided in \cref{app:samples}.
